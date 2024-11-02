@@ -42,7 +42,7 @@ DEPLOY_TO = 'qa'
             steps {
                 echo 'build ra'
                 sh 'env'
-                error: 'some error'
+                error 'some error'
                 sh 'sleep 23'
             }
         }
