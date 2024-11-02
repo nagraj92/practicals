@@ -3,13 +3,14 @@ pipeline {
       label 'node-1'
     }
     options{
-        timeout(time: 1,unit: 'SECONDS')
+        timeout(time: 4,unit: 'MINUTES')
+        disableConcurrentBuilds()
     }
     stages {
         stage('Build') {
             steps {
                 echo 'build ra'
-                sh 'sleep 10'
+                sh 'sleep 23456789876'
             }
         }
         stage('Test') {
