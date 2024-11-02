@@ -21,7 +21,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'build ra'
-                sh 'sleep 23456789876'
+                sh 'sleep 23'
             }
         }
         stage('Test') {
