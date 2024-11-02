@@ -1,61 +1,79 @@
-pipeline {
-    agent {
-      label 'node-1'
-    }
-    options{
-        timeout(time: 4,unit: 'MINUTES')
-        disableConcurrentBuilds()
-    }
-    parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who , why should I say hello to?')
+#pipeline {
+#   agent {
+ #     label 'node-1'
+  #  }
+   # options{
+    #    timeout(time: 4,unit: 'MINUTES')
+     #   disableConcurrentBuilds()
+    #}
+   # parameters {
+     #   string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who , why should I say hello to?')
 
-        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+      #  text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+       # booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
 
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+        #choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 
-        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-    }
-environment {
-DEPOLY_TO = 'prod'
-DEPLOY_TO = 'qa'
-}
+        #password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+    #}
+#environment {
+#DEPOLY_TO = 'prod'
+#DEPLOY_TO = 'qa'
+#}
   
-    stages {
+ #   stages {
         
-        stage('Example') {
-            steps {
-                echo "Hello ${params.PERSON}"
+  #      stage('Example') {
+   #         steps {
+    #            echo "Hello ${params.PERSON}"
 
-                echo "Biography: ${params.BIOGRAPHY}"
+     #           echo "Biography: ${params.BIOGRAPHY}"
 
-                echo "Toggle: ${params.TOGGLE}"
+      #          echo "Toggle: ${params.TOGGLE}"
 
-                echo "Choice: ${params.CHOICE}"
+       #         echo "Choice: ${params.CHOICE}"
 
-                echo "Password: ${params.PASSWORD}"
-            }
-        }
+        #        echo "Password: ${params.PASSWORD}"
+         #   }
+        #}
     
-        stage('Build') {
-            steps {
-                echo 'build ra'
-                sh 'env'
-                error 'some error'
-                sh 'sleep 23'
+        #stage('Build') {
+         #   steps {
+          #      echo 'build ra'
+           #     sh 'env'
+            #    error 'some error'
+             #   sh 'sleep 23'
+            #}
+        #}
+        #stage('Test') {
+         #   steps {
+          #    echo 'test ra'
+           # }
+       # }
+        #stage('Deploy') {
+         #      echo 'deploy ra'
+          #  }
+        #}
+
+
+
+    
+pipeline{
+    agent any 
+    stages{
+        stage('test'){
+            steps{
+                sh """
+                echo "hi"
+                ls -ltr
+                
+                """
             }
-        }
-        stage('Test') {
-            steps {
-              echo 'test ra'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'deploy ra'
-            }
-        }
+        }    }
+    
+    
+}
     }
     post {
         always {
