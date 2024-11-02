@@ -17,7 +17,10 @@ pipeline {
 
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
-
+environment {
+DEPOLY_TO = 'prod'
+DEPLOY_TO = 'qa'
+}
   
     stages {
         
@@ -38,6 +41,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'build ra'
+                sh 'env'
                 sh 'sleep 23'
             }
         }
