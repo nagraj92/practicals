@@ -3,7 +3,7 @@ pipeline {
       label 'node-1'
     }
     options{
-        timeout(time: 8,unit: 'SECONDS')
+        timeout(time: 1,unit: 'SECONDS')
     }
     stages {
         stage('Build') {
