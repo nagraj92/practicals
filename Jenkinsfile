@@ -2,6 +2,9 @@ pipeline {
     agent {
       label 'node-1'
     }
+    options{
+        timeout(time: 8,unit: 'SECONDS')
+    }
     stages {
         stage('Build') {
             steps {
