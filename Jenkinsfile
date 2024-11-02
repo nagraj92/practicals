@@ -42,6 +42,7 @@ DEPLOY_TO = 'qa'
             steps {
                 echo 'build ra'
                 sh 'env'
+                error: 'some error'
                 sh 'sleep 23'
             }
         }
@@ -56,5 +57,9 @@ DEPLOY_TO = 'qa'
             }
         }
     }
-    
+    post {
+        always {
+          echo 'hi'
+        }
+    }
 }
