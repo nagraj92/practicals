@@ -60,6 +60,7 @@ DEPLOY_TO = 'qa'
     post {
         always {
           echo 'hi'
+         deleteDir()
         }
     }
 }
